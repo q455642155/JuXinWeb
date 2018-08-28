@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一个vue.js</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" @keyup="handleInput2" placeholder="请输入或查看" v-model="SalePrice">
+	</div>
+	<script>
+		var vm=new Vue({
+			el:"#app",
+			data:{
+				SalePrice:0
+			},
+			methods:{
+				handleInput2(e) {
+		            // 通过正则过滤小数点后两位
+		            e.target.value = (e.target.value.match(/^\d*(\.?\d{0,2})/g)[0]) || null
+		            console.log(e.target.value)
+		    		//console.log(this.SalePrice)
+		        }
+			}
+		})
+	</script>
+</body>
+</html>
